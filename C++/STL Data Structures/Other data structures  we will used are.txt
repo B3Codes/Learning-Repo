@@ -1,0 +1,6 @@
+Other data structures  we will used are:
+
+1) List -> (doubly linkedlist) <list>
+2) <stack>
+3) <queue>
+4) <priority-queue>
