@@ -127,3 +127,8 @@ counter1.increment();
 console.log("Counter1: " + counter1.value());
 
 console.log("Counter 2: " + counter2.value());
+
+
+
+
+
