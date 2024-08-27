@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Card Css */
+/* Card styling */
+.card {
+  background-color: #ffffff; /* White background for the card */
+  border: 1px solid #dddddd; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 16px; /* Space inside the card */
+  margin: 16px; /* Space outside the card */
+  max-width: 400px; /* Maximum width of the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Hover effect for the card */
+.card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Title styling */
+.card h2 {
+  margin-top: 0; /* Remove top margin */
+  font-size: 1.5em; /* Larger font size for the title */
+  color: #333; /* Darker color for better readability */
+}
+
+/* Paragraph styling */
+.card p {
+  margin: 0; /* Remove default margins */
+  line-height: 1.6; /* Improve readability */
+  color: #555; /* Slightly lighter color for text */
+}
+
+/* Optional: Additional styling for card images or other elements */
+.card img {
+  max-width: 100%; /* Ensure images fit within the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Rounded corners for images */
+  margin-bottom: 12px; /* Space below images */
+}
