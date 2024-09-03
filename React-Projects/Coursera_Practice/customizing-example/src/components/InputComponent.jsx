@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
+import ToggleText from "./ToggleText";
+import DynamicList from "./DynamicList";
+import TextInputWithFocusButton from "./TextInputWithFocusButton";
 
 export default function InputComponent(){
 
@@ -75,6 +78,17 @@ export default function InputComponent(){
       </div>
 
 
+      <div className="card" style={{display:"flex", flexDirection:"column", gap:"10px", textAlign:"center"}}>
+        <h4>Toggling Visibility of UI Elements</h4>
+        <ToggleText />
+        </div>
+
+
+        <div className="card" style={{display:"flex", flexDirection:"column", gap:"10px", textAlign:"center"}}>
+        <h4>Adding and Removing Items from a List</h4>
+        <DynamicList />
+        </div>
+
       <div className="card" style={{display:"flex", flexDirection:"column", gap:"10px",textAlign:"center"}}>
           <h4>The useRef hook</h4>  
           <p>
@@ -84,6 +98,8 @@ export default function InputComponent(){
               <li>The ref object has a property named current.</li>
             </ul>
           </p>
+
+          <TextInputWithFocusButton/>
       </div>
     </>
   );
