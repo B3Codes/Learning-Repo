@@ -3,21 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import InputComponent from './components/InputComponent';
-import RouteApp from './components/RouteApp';
-import DayApp from './components/DayApp';
-import ReactPlayerApp from './components/ReactPlayerApp';
-import ReactSongApp from './components/ReactSongApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    {/* <InputComponent /> */}
-    {/* <RouteApp /> */}
-    {/* <DayApp /> */}
-    {/* <ReactPlayerApp /> */}
-    <ReactSongApp />
+    <App />
   </React.StrictMode>
 );
 

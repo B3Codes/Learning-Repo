@@ -79,3 +79,25 @@
   border-radius: 4px; /* Rounded corners for images */
   margin-bottom: 12px; /* Space below images */
 }
+
+nav{
+  display: flex;
+  justify-content: 'space-around';
+  gap:16px;
+  /* position: relative; */
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.nav-item:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

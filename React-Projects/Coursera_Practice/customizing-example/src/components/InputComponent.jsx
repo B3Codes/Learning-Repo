@@ -3,6 +3,11 @@ import { Form } from "react-bootstrap";
 import ToggleText from "./ToggleText";
 import DynamicList from "./DynamicList";
 import TextInputWithFocusButton from "./TextInputWithFocusButton";
+import FruitsApp from "./FruitsApp";
+import MealApp from "./MealApp";
+import MealCounter from "./MealCounter";
+import MealsProvider from "./MealsProvider";
+
 
 export default function InputComponent(){
 
@@ -101,6 +106,21 @@ export default function InputComponent(){
 
           <TextInputWithFocusButton/>
       </div>
+
+      <div className="card" style={{display:"flex", flexDirection:"column", gap:"10px",textAlign:"center"}}>
+      <h4>Managing state in React</h4>
+            <FruitsApp/>
+      </div>
+
+
+      <div className="card" style={{display:"flex", flexDirection:"column", gap:"10px",textAlign:"center"}}>
+        <h4>Healthy Eating App</h4>
+        
+        <MealApp />
+      </div>
+
+
+      
     </>
   );
 }
