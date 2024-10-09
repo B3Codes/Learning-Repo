@@ -1,0 +1,12 @@
+Hey! there it's Async...
+This new data
+This new dataUTF-8
+Async append
+Async append7
+Async append + 7
+Async append  17,28,27,91,79,115
+Async append  17,28,40,82,08,399
+Async append  17,28,40,83,13,118
+Async append  17,28,40,83,28,992
+Async append  17,28,40,83,58,120
+Async append  17,28,40,84,87,516
