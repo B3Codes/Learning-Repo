@@ -8,3 +8,7 @@
 1728817262421: /favicon.ico new request recieved!
 1728817299598: /headlines new request recieved!
 1728817299823: /favicon.ico new request recieved!
+1728824432765: / new request recieved!
+1728824432851: /favicon.ico new request recieved!
+1728824485536: /handlingURL new request recieved!
+1728824485767: /favicon.ico new request recieved!
