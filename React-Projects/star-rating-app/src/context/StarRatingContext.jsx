@@ -1,8 +1,7 @@
   import React, {createContext, useState, useContext} from "react";
 
   // 1. Create the context
-  // 1. Create the context
-export const StarRatingContext = createContext(); // <-- Correct export
+  const StarRatingContext = createContext();
 
   // create the Provider Component: responsible for managing and providing the state to any child components that need it.
 
@@ -46,4 +45,4 @@ export const StarRatingContext = createContext(); // <-- Correct export
       </StarRatingContext.Provider>
     )
 
-  };
+  }

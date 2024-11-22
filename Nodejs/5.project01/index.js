@@ -1,8 +1,18 @@
 const express = require('express');
+const fs = require("fs");
 const users = require('./MOCK_DATA.json')
 
 const app = express();
 const PORT = 8000;
+
+// Middleware - Plugin
+app.use(express.urlencoded({extended:false}));
+
+const writeUserToFile = (users) => {
+  fs.writeFile("./MOCK_DATA.json",JSON.stringify(users), (err, data) => {
+    // return res.json({status:"Success!", id: users.length});
+  });
+}
 
 // Routes
 
@@ -28,10 +38,30 @@ app.route("/api/users/:id").get((req, res) => {
 })
 .patch((req, res) => {
   // TODO: edit the user with id
-  return res.json({status:"pending"});
+  const id = Number(req.params.id);
+  const userIndex = users.findIndex((user) => user.id === id);
+  if(userIndex === -1)
+      return res.status(400).json({error: "user not found!"});
+  
+  // const body = req.body;
+  const updatedUser = {...users[userIndex], ...req.body};
+  users[userIndex] = updatedUser; 
+  // console.log(body);
+  writeUserToFile(users);
+
+  return res.json({status:"Success!", updatedUser});
 })
 .delete((req, res) => {
   // TODO: delete the user with id
+  const id = Number(req.params.id);
+
+  const userIndex = users.findIndex((user) => user.id === id);
+  if(userIndex === -1)
+      return res.status(400).json({error: "user not found!"});
+
+  users.splice(userIndex,1);
+  writeUserToFile(users);
+  
   return res.json({status:"pending"});
 })
 
@@ -44,8 +74,13 @@ app.route("/api/users/:id").get((req, res) => {
 
 app.post("/api/users", (req, res) => {
   // TODO: create new user
-  return res.json({status: "pending"});
-})
+  const body = req.body;
+  users.push({...body, id:users.length + 1})
+  
+  writeUserToFile(users);
+  // console.log(body);
+  // return res.json({status: "pending"});
+});
 
 // app.patch("/api/users/:id", (req, res) => {
 //   // TODO: edit the user with id
