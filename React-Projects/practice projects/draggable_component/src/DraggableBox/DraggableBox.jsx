@@ -31,7 +31,7 @@ function DraggableBox() {
     if(dragging) {
       // calclulate new position based on mouse pointer
       const newX = e.clientX - boxRef.current.offset.x;
-      const newY = e.clientX - boxRef.current.offset.y;
+      const newY = e.clientY - boxRef.current.offset.y;
 
       // update the psoition state
       setPosition({x:newX, y: newY});
