@@ -17,12 +17,15 @@ async function handleGetUserById(req, res) {
 async function handleUpdateUserById(req, res) {
   const body = req.body;
   const user = await userModel.findByIdAndUpdate(req.params.id, {lastName: body.lastName})
-  return res.json("success!")
+  return res.json({status:"success!", user: user})
 }
 
 async function handleDeleteUserById(req, res) {
-  await userModel.findByIdAndDelete(req.params.id)
-  return res.json("Success!")
+  const user = await userModel.findByIdAndDelete(req.params.id)
+  if(!user){
+    return res.json("User Not Found!")
+  }
+  return res.json({status: "Success!", msg: user+" deleted successfully!"});
 }
 
 async function handleCreateNewUser(req, res) {
