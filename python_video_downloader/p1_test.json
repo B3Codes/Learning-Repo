@@ -1,0 +1,33 @@
+{
+	"start_date": "2024-10-01",
+    "end_date": "2024-11-28",
+	"base_urls": [
+        "http://detroit-vod.cablecast.tv/CablecastPublicSite",
+        "https://beckley.org/council-meetings-agendas",
+        "https://charlestonwv.portal.civicclerk.com",
+        "https://houstontx.new.swagit.com/views/408/city-council",
+        "https://sandiego.granicus.com/ViewPublisher.php?view_id=31",
+        "https://www.seattlechannel.org/videos",
+        "https://www.memphistn.gov/watch-city-council-meetings/",
+        "https://louisvilleky.primegov.com/public/portal?fromiframe=true",
+        "https://www.youtube.com/@TV25BCOCC/videos",
+        "https://milwaukee.granicus.com/ViewPublisher.php?view_id=2",
+        "https://oakland.legistar.com/calendar.aspx",
+        "https://legacy.cityofirvine.org/cityhall/citymanager/pio/ictv/player/default.asp?ID=512",
+        "https://scvtv.com/category/government/city/citycouncil/",
+        "https://www.brla.gov/1085/Live-Stream-Archived-Meetings",
+        "https://fremontca.viebit.com/index.php?folder=City+Council+Meetings",
+        "https://gilbert.granicus.com/ViewPublisher.php?view_id=6",
+        "https://henderson.hylandcloud.com/203AppNetAgenda/",
+        "https://www.anaheim.net/2142/View-City-Council-Meetings",
+        "https://longbeach.primegov.com/public/portal?fromiframe=true",
+        "https://riversideca.legistar.com/Calendar.aspx",
+        "https://rockfordcityil.iqm2.com/Citizens/Calendar.aspx",
+        "https://www.facebook.com/GNVCommissionLive/videos",
+        "https://naperville.legistar.com/Calendar.aspx",
+        "https://allentx.new.swagit.com/views/349",
+        "https://www.cityofsantamaria.org/services/departments/city-clerk-records/agendas-reports-meeting-videos",
+        "https://www.gtcountymi.gov/2408/GTC-TV",
+        "https://sandyspringsga.portal.civicclerk.com/"
+    ]
+}
