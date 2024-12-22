@@ -29,8 +29,8 @@ Before running the project, ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/nodejs-static-file-server.git
-cd nodejs-static-file-server
+git clone https://github.com/B3Codes/custom-node-server.git
+cd custom-node-server
 ```
 
 ### Install Dependencies
