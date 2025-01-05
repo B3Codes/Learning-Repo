@@ -1,18 +1,34 @@
-const addTaskInput = document.getElementById("addTaskInput");
-const addTaskBtn = document.getElementById("addTaskBtn");
-const showTaskList = document.getElementById("showTaskList");
 
-// let index = 0;
+  const addTaskInput = document.getElementById("addTaskInput");
+  const addTaskBtn = document.getElementById("addTaskBtn");
+  const showTaskList = document.getElementById("showTaskList");
 
-addTaskBtn.addEventListener("click",() => {
+  addTaskBtn.addEventListener("click",() => {
   console.log(addTaskInput.value);
   const taskText = addTaskInput.value.trim();
 
-  if(!taskText)
-      return;
+  if(!taskText){
+    alert("Task cannot be empty!");
+    return;
+}
 
   const item = document.createElement('li');
   item.className = "list-group-item align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent";
+
+  const chkBoxDiv = createChkBox(taskText);
+  const edelDiv = createEditDeleteButton(taskText);
+
+  item.appendChild(chkBoxDiv);
+  item.appendChild(edelDiv);
+  showTaskList.appendChild(item);
+
+  addTaskInput.value = "";
+});
+
+
+// let index = 0;
+
+function createChkBox(taskText) {
   const chkBoxDiv = document.createElement('div');
 
   chkBoxDiv.className = "form-check";
@@ -28,14 +44,18 @@ addTaskBtn.addEventListener("click",() => {
   label.textContent = taskText;
 
   chkBoxDiv.appendChild(chkBox);
-  chkBoxDiv.appendChild(label)
+  chkBoxDiv.appendChild(label);
 
+  return chkBoxDiv;
+}
+
+function createEditDeleteButton(taskText) {
   const edelDiv = document.createElement('div');
   edelDiv.className = 'd-flex flex-row justify-content-end mb-1';
 
   // dynamically create <a> tag for edit
   const editAnchor = document.createElement('a');
-  editAnchor.id = 'editTodoBtn';
+  editAnchor.id = `editTodoBtn-${taskText}`;
   editAnchor.className = 'text-info';
   editAnchor.href = "#!";
   editAnchor.setAttribute('data-mdb-tooltip-init','');
@@ -48,7 +68,7 @@ addTaskBtn.addEventListener("click",() => {
 
   // dynamically create <a> tag for delete
   const deleteAnchor = document.createElement('a');
-  deleteAnchor.id = 'deleteTodoBtn';
+  deleteAnchor.id = `deleteTodoBtn-${taskText}`;
   deleteAnchor.className = "text-danger";
   deleteAnchor.href = "#!";
   deleteAnchor.setAttribute('data-mdb-tooltip-init', '');
@@ -63,23 +83,26 @@ addTaskBtn.addEventListener("click",() => {
   edelDiv.appendChild(editAnchor);
   edelDiv.appendChild(deleteAnchor);
 
+  return edelDiv;
+}
 
-  item.appendChild(chkBoxDiv);
-  item.appendChild(edelDiv);
-  showTaskList.appendChild(item);
-
-  addTaskInput.value = "";
-
-
-  document.getElementById('editTodoBtn').addEventListener('click',()=> {
-    console.log("Edit Todo");
-  });
-  
-  document.getElementById('deleteTodoBtn').addEventListener('click',()=> {
-    console.log("Delete Todo");
-  })
-
+showTaskList.addEventListener("click", (e) => {
+  if(e.target.closest('.text-info')) {
+    console.log("Edit Todo")
+  } else if(e.target.closest('.text-danger')){
+    console.log('Delete Todo');
+    const listItem = e.target.closest('li');
+    listItem.remove();
+  }
 })
+
+// document.getElementById(`editTodoBtn-${taskText}`).addEventListener('click',()=> {
+//     console.log("Edit Todo");
+//   });
+  
+//   document.getElementById(`deleteTodoBtn-${taskText}`).addEventListener('click',()=> {
+//     console.log("Delete Todo");
+//   });
 
 
 
