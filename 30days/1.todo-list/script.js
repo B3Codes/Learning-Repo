@@ -3,15 +3,18 @@
   const addTaskBtn = document.getElementById("addTaskBtn");
   const showTaskList = document.getElementById("showTaskList");
 
-  addTaskBtn.addEventListener("click",() => {
-  console.log(addTaskInput.value);
-  const taskText = addTaskInput.value.trim();
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  if(!taskText){
-    alert("Task cannot be empty!");
-    return;
-}
 
+  // Ingitialize the app
+  const initializeApp = () => {
+     tasks.forEach((task) => {
+    renderTask(task);
+  });
+  }
+ 
+
+function renderTask(taskText) {
   const item = document.createElement('li');
   item.className = "list-group-item align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent";
 
@@ -23,6 +26,23 @@
   showTaskList.appendChild(item);
 
   addTaskInput.value = "";
+}
+
+function saveTasksToLocalStorage() {
+
+}
+  
+
+  addTaskBtn.addEventListener("click",() => {
+  console.log(addTaskInput.value);
+  const taskText = addTaskInput.value.trim();
+
+  if(!taskText){
+    alert("Task cannot be empty!");
+    return;
+}
+
+renderTask(taskText);
 });
 
 
@@ -45,6 +65,8 @@ function createChkBox(taskText) {
 
   chkBoxDiv.appendChild(chkBox);
   chkBoxDiv.appendChild(label);
+
+  saveTasksToLocalStorage();
 
   return chkBoxDiv;
 }
