@@ -27,8 +27,11 @@ const CONNECTION_URL = "mongodb+srv://admin:admin123@cluster0.chq5r.mongodb.net/
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB and start the server
-mongoose.connect(CONNECTION_URL)
+mongoose.connect(CONNECTION_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))) // Start the server if connection is successful
-  .catch((Error) => console.log(Error.message)); // Log any connection errors
+  .catch((Error) => console.log('MongoDB connection error:', 'MongoDB connection error:', Error.message)); // Log any connection errors
 
 // mongoose.set('useFindAndModify', false); // Disable deprecated MongoDB findAndModify function
