@@ -26,3 +26,13 @@ export const createPost = (post) => async (dispatch) => {
     console.log(error); // Logging any errors
   }
 }
+
+
+export const updatePost = (id, post) => async (dispatch) => {
+  try {
+    const {data} = await api.updatePost(id, post); // Sending an updated post to the API
+    dispatch( {type:'UPDATE', payload:data}); // Dispatching action to the reducer with updated post data
+  } catch {
+    console.log("error.message")
+  }
+}

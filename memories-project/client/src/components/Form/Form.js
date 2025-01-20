@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {TextField, Button, Typography, Paper } from '@mui/material'
 
 import { Root, StyledPaper, StyledForm, FileInput, ButtonSubmit} from './styles.js';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { createPost } from '../../actions/posts.js'
+import { createPost, updatePost } from '../../actions/posts.js'
 
 const handleSubmit = () => {
 
 }
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator:'',
     title:'',
@@ -19,7 +19,15 @@ const Form = () => {
     selectedFile:''
   });
 
+  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(post) {
+      setPostData(post);
+    }
+  }, [post])
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -34,7 +42,11 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createPost(postData));
+    if(currentId) {
+      dispatch(updatePost(currentId, postData));
+    } else {
+      dispatch(createPost(postData));
+    }
 
   }
 
