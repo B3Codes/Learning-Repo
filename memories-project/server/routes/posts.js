@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getPosts, createPost } from '../controllers/posts.js';
+import { getPosts, createPost, updatePost } from '../controllers/posts.js';
 const router = express.Router();
 
 // // this means every route in posts will start with url posts instead of /. 
@@ -19,5 +19,7 @@ router.get('/', getPosts)
 // });
 
 router.post('/', createPost);
+
+router.patch('/:id', updatePost);
 
 export default router;
