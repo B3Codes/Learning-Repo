@@ -33,6 +33,9 @@ async function handleUserLogin(req, res) {
     });
   }
 
+  
+
+  /* stateful authentication 
   // Generate a unique session ID
   const sessionId = uuidv4();
 
@@ -42,8 +45,16 @@ async function handleUserLogin(req, res) {
   // Set a cookie with the session ID
   res.cookie("uid", sessionId);
 
+  */
+
+
+  /* JWT based authentication */
+
+  const token = setUser(user); // Generate a JWT token for the user
+  res.cookie("uid", token); // Set a cookie with the JWT token
+
   // Redirect to the home page after successful login
-  return res.redirect("/");
+  return res.redirect("/");  
 }
 
 // Exporting the handleUserSignup and handleUserLogin functions
