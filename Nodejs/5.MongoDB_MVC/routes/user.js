@@ -12,7 +12,7 @@ router.route("/")
 // get users by id
 router.route("/:id").get(handleGetUserById)
 
-// make chnages to existing user
+// make changes to existing user
 .patch(handleUpdateUserById)
 
 //  delete teh user
