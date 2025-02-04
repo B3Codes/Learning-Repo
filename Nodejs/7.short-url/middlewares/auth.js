@@ -1,5 +1,6 @@
 const { getUser } = require('../service/auth.js')
 
+/*
 // Middleware to restrict access to logged-in users only
 async function restrictToLoggedinUserOnly(req, res, next) {
   // Extract the user ID from cookies
@@ -39,6 +40,14 @@ async function checkAuth(req, res, next) {
   // Proceed to the next middleware or route handler
   next();
 }
+
+*/
+
+/* Authorization and Authentication */
+
+
+
+
 
 // Exporting the middleware functions
 module.exports = {
