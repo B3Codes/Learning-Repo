@@ -1,0 +1,12 @@
+node-auth-demo/
+├── index.js            // Main entry point of our app
+├── routes/
+│   ├── auth.js         // Authentication (login) routes
+│   └── protected.js    // Protected routes that require authorization
+├── middleware/
+│   ├── auth.js         // JWT verification middleware
+│   └── role.js         // Role-based access middleware
+├── models/
+│   └── user.js         // (Optional) user model; we’ll use an in-memory store for demo
+├── .env                // Environment variables file
+└── package.json

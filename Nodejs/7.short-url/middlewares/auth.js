@@ -46,11 +46,51 @@ async function checkAuth(req, res, next) {
 /* Authorization and Authentication */
 
 
+// async function restrictToLoggedinUserOnly(req, res, next) {
+//   const userUid = req.headers['Authorization'];
+
+//   console.log(req.headers);
+
+//   if(!userUid) return res.redirect('/login');
+//   const token = userUid.split("Bearer ")[1];
+//   const user = await getUser(token);
+
+//   if(!user) return res.redirect('/login');
+
+//   req.user = user;
+
+//   next();
+
+// }
+
+// async function checkAuth(req, res, next) {
+//   console.log(req.headers);
+//   const userUid = req.headers['authorization'];
+//   const token = userUid.split("Bearer ")[1];
+
+//   const user = await getUser(token);
+
+//   next();
+// }
 
 
 
-// Exporting the middleware functions
-module.exports = {
-  restrictToLoggedinUserOnly,
-  checkAuth,
+// // Exporting the middleware functions
+// module.exports = {
+//   restrictToLoggedinUserOnly,
+//   checkAuth,
+// }
+
+
+
+// Authorization 
+
+function checkForAuthentication(req, res, next) {
+  const authorizationHeaderValue = req.headers['authorization'];
+  res.user = null;
+
+  if(!authorizationHeaderValue || !authorizationHeaderValue.startsWith('Bearer')) {
+    return next();
+  }
+  
 }
