@@ -5,9 +5,12 @@ const rateLimit = require('express-rate-limit')
 const app = express();
 const port = 5000;
 
+require('dotenv').config();
+
+
 
 const limiter = rateLimit({ windowMS: 15 * 60 * 1000,max: 100});
-const HF_TOKEN = "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";
+const HF_TOKEN = process.env.HF_TOKEN;
 
 
 // Middleware
