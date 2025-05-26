@@ -299,7 +299,7 @@ function App() {
       // Listen for online users
       newSocket.on('users', (users) => {
         // Exclude self (username stored in token payload ideally )
-        const current   = currentUser.userName;
+        const current   = currentUser?.userName;
         const filteredList = users.filter((user) => user !== current);
         setOnlineUsers(filteredList);
       })
@@ -329,7 +329,7 @@ function App() {
       return () => newSocket.disconnect();
     }
   }, [authenticated, authToken, currentUser]);
-
+  
   // // Handle registration button click
   // const handleRegister = () => {
   //   if(userName.trim() !== ''){
@@ -475,12 +475,21 @@ function App() {
             }}
           >
             
-            {currentChat.map((msg, index) => (
-              <div key={index} style={{ margin: '5px 0' }}>
-                <strong>{msg.from}: </strong>
+            {currentChat.map((msg, index) =>{
+            console.log("msg: ", msg);
+            return (
+              <div style={styles.chatContainer}>
+      {/* Chat Messages */}
+              <div  key={index}
+              style={{
+                ...styles.messageBubble,
+                ...(msg.from === currentUser.userName ? styles.currentUserBubble : styles.otherUserBubble)
+              }}>
+                {/* <strong>{msg.from}: </strong> */}
                 {msg.message}
               </div>
-            ))}
+              </div>
+            )})}
           </div>
           {selectedUser && (
             <div style={{ marginTop: '10px' }}>
@@ -502,5 +511,67 @@ function App() {
     </div>
   );
 }
+
+// Styles for WhatsApp-like design
+const styles = {
+  chatContainer: {
+    // width: "400px",
+    // height: "500px",
+    display: "flex",
+    flexDirection: "column",
+    // border: "1px solid #ccc",
+    // borderRadius: "10px",
+    overflow: "hidden",
+    // backgroundColor: "#f5f5f5"
+  },
+  chatBox: {
+    flex: 1,
+    padding: "10px",
+    overflowY: "auto",
+    display: "flex",
+    flexDirection: "column"
+  },
+  messageBubble: {
+    maxWidth: "60%",
+    padding: "10px",
+    margin: "5px",
+    borderRadius: "10px",
+    fontSize: "14px",
+    lineHeight: "1.4",
+    display: "inline-block",
+    wordBreak: "break-word"
+  },
+  currentUserBubble: {
+    backgroundColor: "#DCF8C6",
+    alignSelf: "flex-end",
+    textAlign: "right"
+  },
+  otherUserBubble: {
+    backgroundColor: "#EAEAEA",
+    alignSelf: "flex-start",
+    textAlign: "left"
+  },
+  inputContainer: {
+    display: "flex",
+    padding: "10px",
+    borderTop: "1px solid #ccc",
+    backgroundColor: "#fff"
+  },
+  input: {
+    flex: 1,
+    padding: "8px",
+    borderRadius: "5px",
+    border: "1px solid #ccc"
+  },
+  sendButton: {
+    marginLeft: "10px",
+    padding: "8px 15px",
+    border: "none",
+    backgroundColor: "#25D366",
+    color: "#fff",
+    borderRadius: "5px",
+    cursor: "pointer"
+  }
+};
 
 export default App;

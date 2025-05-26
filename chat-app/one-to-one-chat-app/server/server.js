@@ -72,8 +72,8 @@ const path = require('path');
 // Load environment variables
 dotenv.config();
 
-const User = require('../models/User');
-const Message = require('../models/Message');
+const User = require('./models/User');
+const Message = require('./models/Message');
 // const { timeStamp } = require('console');
 
 // connect to mongodb
@@ -92,7 +92,7 @@ app.use(cors())
 
 
 // Auth routes
-app.use('/api/auth', require('../routes/auth'));
+app.use('/api/auth', require('./routes/auth'));
 
 // Create HTTP server and Socket.IO server
 const server = http.createServer(app);
@@ -169,7 +169,13 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('client disconnected', socket.id);
 
-    delete users[username];
+    if(users[username]) {
+      users[username] = users[username].filter(id => id != socket.id);
+      if(users[username].length === 0) {
+        delete users[username];
+      }
+    }
+    
     io.emit('users', Object.keys(users));
   });
 

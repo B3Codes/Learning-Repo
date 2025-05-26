@@ -1,9 +1,9 @@
-const express = require('../server/node_modules/express');
+const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const bcrypt = require('../server/node_modules/bcryptjs');
-const jwt = require('../server/node_modules/jsonwebtoken');
-const {body, validationResult} = require('../server/node_modules/express-validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const {body, validationResult} = require('express-validator');
 
 // Middleware to protect routes by verifying token
 const authMiddleware = (req, res, next) => {
